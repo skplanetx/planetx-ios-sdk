@@ -1,0 +1,295 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1C74AE86165438B2007728FE /* OAuthClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C74AE83165438B2007728FE /* OAuthClient.m */; };
+		1C74AE87165438B2007728FE /* OAuthInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C74AE85165438B2007728FE /* OAuthInfoManager.m */; };
+		1C92556216209DA1003A291C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C92556116209DA1003A291C /* Foundation.framework */; };
+		1C9255C3162191B3003A291C /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9255C2162191B3003A291C /* JSONKit.m */; };
+		1CA2532416555C7B00C55B0C /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA2531F16555C7B00C55B0C /* Constants.m */; };
+		1CA2532516555C7B00C55B0C /* OAuthInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA2532116555C7B00C55B0C /* OAuthInfo.m */; };
+		1CA2532616555C7B00C55B0C /* StringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA2532316555C7B00C55B0C /* StringUtil.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1C92555C16209DA1003A291C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1C74AE82165438B2007728FE /* OAuthClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthClient.h; sourceTree = "<group>"; };
+		1C74AE83165438B2007728FE /* OAuthClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthClient.m; sourceTree = "<group>"; };
+		1C74AE84165438B2007728FE /* OAuthInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthInfoManager.h; sourceTree = "<group>"; };
+		1C74AE85165438B2007728FE /* OAuthInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthInfoManager.m; sourceTree = "<group>"; };
+		1C92555E16209DA1003A291C /* libSKPOP_SDK_OAUTH.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSKPOP_SDK_OAUTH.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C92556116209DA1003A291C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1C92556516209DA1003A291C /* SKPOP_SDK_OAUTH-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SKPOP_SDK_OAUTH-Prefix.pch"; sourceTree = "<group>"; };
+		1C9255C1162191B3003A291C /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		1C9255C2162191B3003A291C /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		1CA2531E16555C7B00C55B0C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		1CA2531F16555C7B00C55B0C /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		1CA2532016555C7B00C55B0C /* OAuthInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthInfo.h; sourceTree = "<group>"; };
+		1CA2532116555C7B00C55B0C /* OAuthInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthInfo.m; sourceTree = "<group>"; };
+		1CA2532216555C7B00C55B0C /* StringUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtil.h; sourceTree = "<group>"; };
+		1CA2532316555C7B00C55B0C /* StringUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringUtil.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1C92555B16209DA1003A291C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C92556216209DA1003A291C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1C74AE81165438B2007728FE /* OAUTH_Class */ = {
+			isa = PBXGroup;
+			children = (
+				1CA2531E16555C7B00C55B0C /* Constants.h */,
+				1CA2531F16555C7B00C55B0C /* Constants.m */,
+				1CA2532016555C7B00C55B0C /* OAuthInfo.h */,
+				1CA2532116555C7B00C55B0C /* OAuthInfo.m */,
+				1CA2532216555C7B00C55B0C /* StringUtil.h */,
+				1CA2532316555C7B00C55B0C /* StringUtil.m */,
+				1C74AE82165438B2007728FE /* OAuthClient.h */,
+				1C74AE83165438B2007728FE /* OAuthClient.m */,
+				1C74AE84165438B2007728FE /* OAuthInfoManager.h */,
+				1C74AE85165438B2007728FE /* OAuthInfoManager.m */,
+			);
+			path = OAUTH_Class;
+			sourceTree = "<group>";
+		};
+		1C92555316209DA1003A291C = {
+			isa = PBXGroup;
+			children = (
+				1C92556316209DA1003A291C /* SKPOP_SDK_OAUTH */,
+				1C92556016209DA1003A291C /* Frameworks */,
+				1C92555F16209DA1003A291C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1C92555F16209DA1003A291C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1C92555E16209DA1003A291C /* libSKPOP_SDK_OAUTH.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1C92556016209DA1003A291C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1C92556116209DA1003A291C /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1C92556316209DA1003A291C /* SKPOP_SDK_OAUTH */ = {
+			isa = PBXGroup;
+			children = (
+				1C74AE81165438B2007728FE /* OAUTH_Class */,
+				1C9255C0162191B3003A291C /* JSONKit */,
+				1C92556416209DA1003A291C /* Supporting Files */,
+			);
+			path = SKPOP_SDK_OAUTH;
+			sourceTree = "<group>";
+		};
+		1C92556416209DA1003A291C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1C92556516209DA1003A291C /* SKPOP_SDK_OAUTH-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1C9255C0162191B3003A291C /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				1C9255C1162191B3003A291C /* JSONKit.h */,
+				1C9255C2162191B3003A291C /* JSONKit.m */,
+			);
+			path = JSONKit;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1C92555D16209DA1003A291C /* SKPOP_SDK_OAUTH */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C92556C16209DA1003A291C /* Build configuration list for PBXNativeTarget "SKPOP_SDK_OAUTH" */;
+			buildPhases = (
+				1C92555A16209DA1003A291C /* Sources */,
+				1C92555B16209DA1003A291C /* Frameworks */,
+				1C92555C16209DA1003A291C /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SKPOP_SDK_OAUTH;
+			productName = SKPOP_SDK_OAUTH;
+			productReference = 1C92555E16209DA1003A291C /* libSKPOP_SDK_OAUTH.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1C92555516209DA1003A291C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = SK;
+			};
+			buildConfigurationList = 1C92555816209DA1003A291C /* Build configuration list for PBXProject "SKPOP_SDK_OAUTH" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1C92555316209DA1003A291C;
+			productRefGroup = 1C92555F16209DA1003A291C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1C92555D16209DA1003A291C /* SKPOP_SDK_OAUTH */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1C92555A16209DA1003A291C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C9255C3162191B3003A291C /* JSONKit.m in Sources */,
+				1C74AE86165438B2007728FE /* OAuthClient.m in Sources */,
+				1C74AE87165438B2007728FE /* OAuthInfoManager.m in Sources */,
+				1CA2532416555C7B00C55B0C /* Constants.m in Sources */,
+				1CA2532516555C7B00C55B0C /* OAuthInfo.m in Sources */,
+				1CA2532616555C7B00C55B0C /* StringUtil.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1C92556A16209DA1003A291C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1C92556B16209DA1003A291C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1C92556D16209DA1003A291C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/SKPOP_SDK_OAUTH.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SKPOP_SDK_OAUTH/SKPOP_SDK_OAUTH-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/SKPOP_SDK_OAUTH/SKPOP_SDK\"",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		1C92556E16209DA1003A291C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/SKPOP_SDK_OAUTH.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SKPOP_SDK_OAUTH/SKPOP_SDK_OAUTH-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/SKPOP_SDK_OAUTH/SKPOP_SDK\"",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1C92555816209DA1003A291C /* Build configuration list for PBXProject "SKPOP_SDK_OAUTH" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C92556A16209DA1003A291C /* Debug */,
+				1C92556B16209DA1003A291C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1C92556C16209DA1003A291C /* Build configuration list for PBXNativeTarget "SKPOP_SDK_OAUTH" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C92556D16209DA1003A291C /* Debug */,
+				1C92556E16209DA1003A291C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1C92555516209DA1003A291C /* Project object */;
+}

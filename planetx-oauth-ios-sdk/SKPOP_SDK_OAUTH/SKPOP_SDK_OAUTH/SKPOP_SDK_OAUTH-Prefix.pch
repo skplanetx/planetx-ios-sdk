@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'SKPOP_SDK_OAUTH' target in the 'SKPOP_SDK_OAUTH' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif
