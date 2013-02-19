@@ -21,6 +21,11 @@
     return self;
 }
 
+-(void)dealloc {
+    [headerDic release];
+    [super dealloc];
+}
+
 -(void)checkInit {
     headerDic = [[NSMutableDictionary alloc] init];
 }

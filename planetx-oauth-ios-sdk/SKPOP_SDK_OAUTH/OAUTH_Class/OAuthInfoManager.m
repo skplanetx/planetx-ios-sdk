@@ -165,7 +165,7 @@ static OAuthInfoManager *sharedInstance = nil;
     
     NSData* jsonData = [NSURLConnection sendSynchronousRequest:requestObj returningResponse:&response error:nil] ;
     
-    responseString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    responseString = [[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding] autorelease];
     NSLog(@"reissueAccessToken : %@", responseString);
     
     NSRange range = [responseString rangeOfString:@"access_token"];
@@ -370,7 +370,7 @@ static OAuthInfoManager *sharedInstance = nil;
     
     NSData* jsonData = [NSURLConnection sendSynchronousRequest:requestObj returningResponse:&response error:nil] ;
     
-    responseString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    responseString = [[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding] autorelease];
     NSLog(@"revokeTokenToServer : %@", responseString);
     
     NSRange range = [responseString rangeOfString:@"success"];
@@ -401,9 +401,9 @@ static OAuthInfoManager *sharedInstance = nil;
          {
              //[receivedData appendData:data];
              
-             NSString *result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+             NSString *result = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
              
-             NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+             NSString *responseString = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
              NSLog(@"revokeTokenToServer : %@", responseString);
              
              if(_target && _finishedSelector)
@@ -415,14 +415,15 @@ static OAuthInfoManager *sharedInstance = nil;
                      [dict setValue:@"" forKey:SKPopASyncResultMessage];
                      [dict setValue:result forKey:SKPopASyncResultData];
                      [_target performSelectorOnMainThread:_finishedSelector withObject:dict waitUntilDone:FALSE];
+                     [dict release];
                  } else {
                      NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
                      [dict setValue:@"" forKey:SKPopASyncResultCode];
                      [dict setValue:@"" forKey:SKPopASyncResultMessage];
                      [dict setValue:result forKey:SKPopASyncResultData];
                      [_target performSelectorOnMainThread:_failedSelector withObject:dict waitUntilDone:FALSE];
+                     [dict release];
                  }
-                 
              }
 
          }
@@ -439,6 +440,7 @@ static OAuthInfoManager *sharedInstance = nil;
                  [dict setValue:[err localizedDescription] forKey:SKPopASyncResultMessage];
                  [dict setValue:@"" forKey:SKPopASyncResultData];
                  [_target performSelectorOnMainThread:_failedSelector withObject:dict waitUntilDone:FALSE];
+                 [dict release];
              }
          }
      }];

@@ -22,6 +22,13 @@ NSMutableURLRequest *urlRequest;
 
 static NSString *_appKey;
 
+-(void)dealloc {
+    if ( receivedData )
+        [receivedData release];
+    
+    [super dealloc];
+}
+
 +(void)setAppKey:(NSString *)appKey
 {
     _appKey = appKey;
@@ -31,6 +38,7 @@ static NSString *_appKey;
 {
     return _appKey;
 }
+
 
 -(void)setHeader:(NSError **)error;
 {
@@ -94,13 +102,13 @@ static NSString *_appKey;
     
     /*************** Accept / Content Type IS HERE *****************/
     // 2. set up to request payload type and result content type.
+    NSString *requestTypeString = [Constants getContentType:requestBundle.requestType];
     NSString *returnTypeString = [Constants getContentType:requestBundle.responseType];
-    
     
     if ( [@"error" isEqualToString:returnTypeString] ) {
         NSMutableDictionary* details = [NSMutableDictionary dictionary];
-        [details setValue:SKPopError00002 forKey:NSLocalizedDescriptionKey];
-        *error = [NSError errorWithDomain:@"ERR_CD_00002" code:2 userInfo:details];
+        [details setValue:SKPopError00003 forKey:NSLocalizedDescriptionKey];
+        *error = [NSError errorWithDomain:@"ERR_CD_00003" code:3 userInfo:details];
         return;
     }
     
@@ -156,6 +164,7 @@ static NSString *_appKey;
                     postData =[NSMutableData dataWithBytes:[requestBundle.payload UTF8String] length:[requestBundle.payload length]];
                 }
                 NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+                [urlRequest setValue:requestTypeString forHTTPHeaderField:@"Content-Type"];
                 [urlRequest setValue:postLength forHTTPHeaderField:@"Content-Length"];
                 [urlRequest setHTTPBody:postData];
             }
@@ -191,6 +200,7 @@ static NSString *_appKey;
             break;
         case SKPopHttpMethodGET:
         case SKPopHttpMethodDELETE:
+            [urlRequest setValue:requestTypeString forHTTPHeaderField:@"Content-Type"];
             break;
         default: {
             NSMutableDictionary* details = [NSMutableDictionary dictionary];
@@ -241,7 +251,7 @@ static NSString *_appKey;
         return nil;      
     }
     
-    resultString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    resultString = [[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding] autorelease];
     NSLog(@"Response data is going to be ==> %@", resultString);
 
     
@@ -279,6 +289,7 @@ static NSString *_appKey;
             [dict setValue:[err localizedDescription] forKey:SKPopASyncResultMessage];
             [dict setValue:@"" forKey:SKPopASyncResultData];
             [_target performSelectorOnMainThread:_failedSelector withObject:dict waitUntilDone:FALSE];
+            [dict release];
         }   
         return;
     }
@@ -294,7 +305,7 @@ static NSString *_appKey;
          {
              NSLog(@"APIRequest async data received");
              
-             result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+             result = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
              if(_target && _finishedSelector)
              {
                  NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
@@ -302,6 +313,7 @@ static NSString *_appKey;
                  [dict setValue:@"" forKey:SKPopASyncResultMessage];
                  [dict setValue:result forKey:SKPopASyncResultData];
                  [_target performSelectorOnMainThread:_finishedSelector withObject:dict waitUntilDone:FALSE];
+                 [dict release];
                  
              }             
          }
@@ -314,7 +326,8 @@ static NSString *_appKey;
                  [dict setValue:[error localizedDescription] forKey:SKPopASyncResultMessage];
                  [dict setValue:@"" forKey:SKPopASyncResultData];
                  [_target performSelectorOnMainThread:_failedSelector withObject:dict waitUntilDone:FALSE];
-             }               
+                 [dict release];
+             }
          }
          
      }];

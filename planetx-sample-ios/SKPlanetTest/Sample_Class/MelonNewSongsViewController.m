@@ -83,8 +83,11 @@ RequestBundle *reqBundle;
 
     [reqBundle setUrl:URL];
     [reqBundle setParameters:param];
+    //[reqBundle setHttpMethod:SKPopHttpMethodGET];
+    //[reqBundle setResponseType:SKPopContentTypeJSON];
     [reqBundle setHttpMethod:SKPopHttpMethodGET];
-    [reqBundle setResponseType:SKPopContentTypeJSON];
+    [reqBundle setRequestType:SKPopContentTypeXML];
+    [reqBundle setResponseType:SKPopContentTypeXML];
     
     [param release];
     

@@ -278,7 +278,7 @@ CGRect oldStatusFrame;
         if ([data length] > 0 && error == nil)
         {
             
-            result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            result = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
             [self parseData:data];
             if(_target && _finishedSelector)
             {
@@ -287,7 +287,7 @@ CGRect oldStatusFrame;
                 [dict setValue:@"" forKey:SKPopASyncResultMessage];
                 [dict setValue:result forKey:SKPopASyncResultData];
                 [_target performSelectorOnMainThread:_finishedSelector withObject:dict waitUntilDone:FALSE];
-                
+                [dict release];
             }
         }
         else if ([data length] == 0 && error == nil)
@@ -303,6 +303,8 @@ CGRect oldStatusFrame;
                 [dict setValue:[error localizedDescription] forKey:SKPopASyncResultMessage];
                 [dict setValue:@"" forKey:SKPopASyncResultData];
                 [_target performSelectorOnMainThread:_failedSelector withObject:dict waitUntilDone:FALSE];
+                [dict release];
+            
             }
         }
     }];

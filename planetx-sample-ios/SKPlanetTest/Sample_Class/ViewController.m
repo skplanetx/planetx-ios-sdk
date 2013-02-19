@@ -34,13 +34,14 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.title = @"SKPOP SDK Sample";    
     
+
     [APIRequest setAppKey:@"##APPKEY_INPUTHERE##"];
 
     OAuthInfoManager *oaim = [OAuthInfoManager sharedInstance];
     [oaim setClientId:@"##CLIENTID_INPUTHERE##"];
     [oaim setClientSecret:@"##CLIENTSECRET_INPUTHERE##"];
     [oaim setScope:@"##SCOPE_INPUTHERE##"];
-    
+
 }
 
 - (void)viewDidUnload

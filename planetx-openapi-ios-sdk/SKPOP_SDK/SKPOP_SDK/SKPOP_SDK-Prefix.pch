@@ -1,7 +1,0 @@
-//
-// Prefix header for all source files of the 'SKPOP_SDK' target in the 'SKPOP_SDK' project
-//
-
-#ifdef __OBJC__
-    #import <Foundation/Foundation.h>
-#endif
