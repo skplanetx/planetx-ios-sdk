@@ -315,10 +315,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SKPlanetTest/SKPlanetTest-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					$SRCROOT/../SKPOP_SDK/SKPOP_SDK/SDK_Class,
-					$SRCROOT/../SKPOP_SDK_OAUTH/SKPOP_SDK_OAUTH/OAuth_Class,
+					"$SRCROOT/../planetx-oauth-ios-sdk/SKPOP_SDK_OAUTH/OAuth_Class",
+					"$SRCROOT/../planetx-openapi-ios-sdk/SKPOP_SDK/SDK_Class",
 				);
 				INFOPLIST_FILE = "SKPlanetTest/SKPlanetTest-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -332,10 +333,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SKPlanetTest/SKPlanetTest-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					$SRCROOT/../SKPOP_SDK/SKPOP_SDK/SDK_Class,
-					$SRCROOT/../SKPOP_SDK_OAUTH/SKPOP_SDK_OAUTH/OAuth_Class,
+					"$SRCROOT/../planetx-oauth-ios-sdk/SKPOP_SDK_OAUTH/OAuth_Class",
+					"$SRCROOT/../planetx-openapi-ios-sdk/SKPOP_SDK/SDK_Class",
 				);
 				INFOPLIST_FILE = "SKPlanetTest/SKPlanetTest-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
