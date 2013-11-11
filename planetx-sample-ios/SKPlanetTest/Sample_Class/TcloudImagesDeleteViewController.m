@@ -1,30 +1,31 @@
 //
-//  NateOnModProfileViewController.m
-//  SKPOPSDKSample
+//  TcloudImagesDeleteViewController.m
+//  SKPlanetTest
 //
-//  Created by Lion User on 01/08/2012.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Ray on 13. 11. 10..
+//
 //
 
-#import "NateOnModProfileViewController.h"
+#import "TcloudImagesDeleteViewController.h"
 #import "Const.h"
 
 #import "APIRequest.h"
 #import "RequestBundle.h"
 
-@interface NateOnModProfileViewController ()
+@interface TcloudImagesDeleteViewController ()
 
 @end
 
-@implementation NateOnModProfileViewController
+@implementation TcloudImagesDeleteViewController
 
-@synthesize myTextField, myTextView;
+@synthesize myTextView;
 
 APIRequest *api;
 RequestBundle *reqBundle;
 
 
-#define URL SERVER@"/nateon/profile/nickname"
+#define OBJECTID "##OBJECTID"
+#define URL SERVER@"/tcloud/images"@OBJECTID
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,7 +40,7 @@ RequestBundle *reqBundle;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.navigationItem.title = @"Modify NateOn Profile";
+    self.navigationItem.title = @"Delete Tcloud Image";
     
     reqBundle = [[RequestBundle alloc] init];
     api = [[APIRequest alloc] init];
@@ -75,14 +76,10 @@ RequestBundle *reqBundle;
 {
     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
     [param setValue:@"1" forKey:@"version"];
-    [param setValue:[myTextField text] forKey:@"nickname"];
     
-    
-    reqBundle = [[RequestBundle alloc] init];
     [reqBundle setUrl:URL];
     [reqBundle setParameters:param];
-    [reqBundle setHttpMethod:SKPopHttpMethodPUT];
-    [reqBundle setRequestType:SKPopContentTypeFORM];
+    [reqBundle setHttpMethod:SKPopHttpMethodDELETE];
     [reqBundle setResponseType:SKPopContentTypeJSON];
     
     [param release];
@@ -94,6 +91,7 @@ RequestBundle *reqBundle;
 - (IBAction)requestSync:(id)sender {
     
     [self clearResult];
+    
     
     [self initRequestBundle];
     
@@ -110,6 +108,7 @@ RequestBundle *reqBundle;
     }
     
     [result release];
+    
 }
 
 
@@ -119,38 +118,38 @@ RequestBundle *reqBundle;
     
     [self initRequestBundle];
     
-    [api setDelegate:self 
-            finished:@selector(apiRequestFinished:) 
-              failed:@selector(apiRequestFailed:)];
+    [api setDelegate:self
+            finished:@selector(testFinished:)
+              failed:@selector(testFailed:)];
     [api aSyncRequest:reqBundle];
     
-}
-
-#pragma mark - SKPOP SDK Delegate
-
--(void)apiRequestFinished:(NSDictionary *)result
-{
-    NSLog(@"apiRequestFinished : %@", result);
-    [myTextView setText:[result valueForKey:SKPopASyncResultData]];
-    [result release];
-}
-
--(void)apiRequestFailed:(NSDictionary *)result
-{
-    NSLog(@"apiRequestFailed : %@", result);
-    [myTextView setText:[result valueForKey:SKPopASyncResultMessage]];
-    [result release];
     
 }
 
 #pragma mark
 
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    if (textField == myTextField) {
-        [myTextField resignFirstResponder];
-    }    
-    return YES;
+// delegate 함수
+-(void)testProgress:(NSDictionary *)result
+{
+    NSLog(@"testProgress : %@", result);
+    [result release];
 }
+
+-(void)testFinished:(NSDictionary *)result
+{
+    NSLog(@"testFinished : %@", result);
+    [myTextView setText:[result valueForKey:SKPopASyncResultData]];
+    [result release];
+}
+
+-(void)testFailed:(NSDictionary *)result
+{
+    NSLog(@"testFailed : %@", result);
+    [myTextView setText:[result valueForKey:SKPopASyncResultMessage]];
+    [result release];
+    
+}
+
+
 
 @end

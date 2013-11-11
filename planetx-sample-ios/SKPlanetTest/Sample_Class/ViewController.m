@@ -14,11 +14,10 @@
 #import "Const.h"
 
 #import "MelonNewSongsViewController.h"
-#import "NateOnGetProfileViewController.h"
-#import "NateOnModProfileViewController.h"
-#import "CyworldNoteWriteArticleViewController.h"
-#import "CyworldNoteUploadFileViewController.h"
-#import "CyworldNoteDeleteArticleViewController.h"
+#import "ElevenStreetCategoriesViewController.h"
+#import "TcloudImagesViewController.h"
+#import "TcloudImagesDeleteViewController.h"
+#import "TcloudImageTagsViewController.h"
 
 @interface ViewController ()
 
@@ -62,52 +61,37 @@
          failed:@selector(oAuthLoginFailed::)];
 }
 
-/*
- MelonNewSongs
- NateOnGetProfile
- NateOnModProfile
- CLogDeleteArticle
- CLogUploadFile
- CLogWriteArtice
- */
 - (IBAction)getMelonNewSongsButton:(id)sender {
     MelonNewSongsViewController *vc = [[MelonNewSongsViewController alloc]
-                                          initWithNibName:@"MelonNewSongsViewController" bundle:nil];    
+                                          initWithNibName:@"MelonNewSongsViewController" bundle:nil];
     [self.navigationController pushViewController:vc animated:YES];
     [vc release];
 }
 
-- (IBAction)getNateOnProfileButton:(id)sender {
-    NateOnGetProfileViewController *vc = [[NateOnGetProfileViewController alloc] 
-                                          initWithNibName:@"NateOnGetProfileViewController" bundle:nil];
+- (IBAction)getElevenStreetCategoriesButton:(id)sender {
+    ElevenStreetCategoriesViewController *vc = [[ElevenStreetCategoriesViewController alloc]
+                                       initWithNibName:@"ElevenStreetCategoriesViewController" bundle:nil];
     [self.navigationController pushViewController:vc animated:YES];
     [vc release];
 }
 
-- (IBAction)modifyNateOnProfile:(id)sender {
-    NateOnModProfileViewController *vc = [[NateOnModProfileViewController alloc] 
-                                             initWithNibName:@"NateOnModProfileViewController" bundle:nil];
+- (IBAction)getTcloudImagesButton:(id)sender {
+    TcloudImagesViewController *vc = [[TcloudImagesViewController alloc]
+                                       initWithNibName:@"TcloudImagesViewController" bundle:nil];
     [self.navigationController pushViewController:vc animated:YES];
     [vc release];
 }
 
-- (IBAction)writeCyworldArticle:(id)sender {
-    CyworldNoteWriteArticleViewController *vc = [[CyworldNoteWriteArticleViewController alloc] 
-                                             initWithNibName:@"CyworldNoteWriteArticleViewController" bundle:nil];
+- (IBAction)deleteTcloudImageButton:(id)sender {
+    TcloudImagesDeleteViewController *vc = [[TcloudImagesDeleteViewController alloc]
+                                       initWithNibName:@"TcloudImagesDeleteViewController" bundle:nil];
     [self.navigationController pushViewController:vc animated:YES];
     [vc release];
 }
 
-- (IBAction)uploadCyworldImage:(id)sender {
-    CyworldNoteUploadFileViewController *vc = [[CyworldNoteUploadFileViewController alloc] 
-                                            initWithNibName:@"CyworldNoteUploadFileViewController" bundle:nil];
-    [self.navigationController pushViewController:vc animated:YES];
-    [vc release];
-}
-
-- (IBAction)deleteCyworldArticle:(id)sender {
-    CyworldNoteDeleteArticleViewController *vc = [[CyworldNoteDeleteArticleViewController alloc] 
-                                              initWithNibName:@"CyworldNoteDeleteArticleViewController" bundle:nil];
+- (IBAction)postTcloudImageTagsButton:(id)sender {
+    TcloudImageTagsViewController *vc = [[TcloudImageTagsViewController alloc]
+                                       initWithNibName:@"TcloudImageTagsViewController" bundle:nil];
     [self.navigationController pushViewController:vc animated:YES];
     [vc release];
 }

@@ -1,31 +1,29 @@
 //
-//  CyworldNoteWriteArticleViewController.m
-//  SKPOPSDKSample
+//  ElevenStreetCategoriesViewController.m
+//  SKPlanetTest
 //
-//  Created by Lion User on 01/08/2012.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Ray on 13. 11. 10..
+//
 //
 
-#import "CyworldNoteWriteArticleViewController.h"
+#import "ElevenStreetCategoriesViewController.h"
 #import "Const.h"
 
 #import "APIRequest.h"
 #import "RequestBundle.h"
 
-@interface CyworldNoteWriteArticleViewController ()
+@interface ElevenStreetCategoriesViewController ()
 
 @end
 
-@implementation CyworldNoteWriteArticleViewController
+@implementation ElevenStreetCategoriesViewController
 
 @synthesize myTextView;
 
 APIRequest *api;
 RequestBundle *reqBundle;
 
-#define USERID @"67324899"
-#define URL SERVER@"/cyworld/note/"USERID@"/notes"
-
+#define URL SERVER_PUBLIC@"/11st/common/categories"
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,7 +38,7 @@ RequestBundle *reqBundle;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.navigationItem.title = @"Write Cyworld Article";
+    self.navigationItem.title = @"Get 11st Categories";
     
     reqBundle = [[RequestBundle alloc] init];
     api = [[APIRequest alloc] init];
@@ -67,6 +65,7 @@ RequestBundle *reqBundle;
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+
 - (void)clearResult {
     [myTextView setText:@""];
 }
@@ -75,16 +74,11 @@ RequestBundle *reqBundle;
 {
     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
     [param setValue:@"1" forKey:@"version"];
-    [param setValue:@"Content Test Value" forKey:@"contents"];
-    [param setValue:@"" forKey:@"attachId"];
     
-    
-    reqBundle = [[RequestBundle alloc] init];
     [reqBundle setUrl:URL];
     [reqBundle setParameters:param];
-    [reqBundle setHttpMethod:SKPopHttpMethodPOST];
-    [reqBundle setRequestType:SKPopContentTypeFORM];
-    [reqBundle setResponseType:SKPopContentTypeXML];
+    [reqBundle setHttpMethod:SKPopHttpMethodGET];
+    [reqBundle setResponseType:SKPopContentTypeJSON];
     
     [param release];
     
@@ -95,6 +89,7 @@ RequestBundle *reqBundle;
 - (IBAction)requestSync:(id)sender {
     
     [self clearResult];
+    
     
     [self initRequestBundle];
     
@@ -121,27 +116,36 @@ RequestBundle *reqBundle;
     
     [self initRequestBundle];
     
-    [api setDelegate:self 
-            finished:@selector(apiRequestFinished:) 
-              failed:@selector(apiRequestFailed:)];
+    [api setDelegate:self
+            finished:@selector(testFinished:)
+              failed:@selector(testFailed:)];
     [api aSyncRequest:reqBundle];
+    
     
 }
 
-#pragma mark - SKPOP SDK Delegate
+#pragma mark
 
--(void)apiRequestFinished:(NSDictionary *)result
+// delegate 함수
+-(void)testProgress:(NSDictionary *)result
 {
-    NSLog(@"apiRequestFinished : %@", result);
+    NSLog(@"testProgress : %@", result);
+    [result release];
+}
+
+-(void)testFinished:(NSDictionary *)result
+{
+    NSLog(@"testFinished : %@", result);
     [myTextView setText:[result valueForKey:SKPopASyncResultData]];
     [result release];
 }
 
--(void)apiRequestFailed:(NSDictionary *)result
+-(void)testFailed:(NSDictionary *)result
 {
-    NSLog(@"apiRequestFailed : %@", result);
+    NSLog(@"testFailed : %@", result);
     [myTextView setText:[result valueForKey:SKPopASyncResultMessage]];
     [result release];
+    
 }
 
 

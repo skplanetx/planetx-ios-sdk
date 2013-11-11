@@ -11,11 +11,10 @@
 @interface ViewController : UIViewController
 - (IBAction)loginButton:(id)sender;
 - (IBAction)getMelonNewSongsButton:(id)sender;
-- (IBAction)getNateOnProfileButton:(id)sender;
-- (IBAction)modifyNateOnProfile:(id)sender;
-- (IBAction)writeCyworldArticle:(id)sender;
-- (IBAction)uploadCyworldImage:(id)sender;
-- (IBAction)deleteCyworldArticle:(id)sender;
+- (IBAction)getElevenStreetCategoriesButton:(id)sender;
+- (IBAction)getTcloudImagesButton:(id)sender;
+- (IBAction)deleteTcloudImageButton:(id)sender;
+- (IBAction)postTcloudImageTagsButton:(id)sender;
 
 -(void)oAuthLoginFinished:(NSDictionary *)result;
 -(void)oAuthLoginFailed:(NSDictionary *)result;

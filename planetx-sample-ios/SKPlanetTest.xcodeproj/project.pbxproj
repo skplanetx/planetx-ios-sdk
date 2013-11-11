@@ -9,21 +9,19 @@
 /* Begin PBXBuildFile section */
 		1C74AEAE16543950007728FE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C74AE9F16543950007728FE /* ViewController.m */; };
 		1C74AEAF16543950007728FE /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C74AEA016543950007728FE /* ViewController.xib */; };
-		1C90D8B51655611300843B11 /* CyworldNoteDeleteArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C90D8A41655611200843B11 /* CyworldNoteDeleteArticleViewController.m */; };
-		1C90D8B61655611300843B11 /* CyworldNoteDeleteArticleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C90D8A51655611200843B11 /* CyworldNoteDeleteArticleViewController.xib */; };
-		1C90D8B71655611300843B11 /* CyworldNoteUploadFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C90D8A71655611200843B11 /* CyworldNoteUploadFileViewController.m */; };
-		1C90D8B81655611300843B11 /* CyworldNoteUploadFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C90D8A81655611200843B11 /* CyworldNoteUploadFileViewController.xib */; };
-		1C90D8B91655611300843B11 /* CyworldNoteWriteArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C90D8AA1655611200843B11 /* CyworldNoteWriteArticleViewController.m */; };
-		1C90D8BA1655611300843B11 /* CyworldNoteWriteArticleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C90D8AB1655611200843B11 /* CyworldNoteWriteArticleViewController.xib */; };
 		1C90D8BB1655611300843B11 /* MelonNewSongsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C90D8AD1655611200843B11 /* MelonNewSongsViewController.m */; };
 		1C90D8BC1655611300843B11 /* MelonNewSongsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C90D8AE1655611200843B11 /* MelonNewSongsViewController.xib */; };
-		1C90D8BD1655611300843B11 /* NateOnGetProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C90D8B01655611200843B11 /* NateOnGetProfileViewController.m */; };
-		1C90D8BE1655611300843B11 /* NateOnGetProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C90D8B11655611200843B11 /* NateOnGetProfileViewController.xib */; };
-		1C90D8BF1655611300843B11 /* NateOnModProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C90D8B31655611200843B11 /* NateOnModProfileViewController.m */; };
-		1C90D8C01655611300843B11 /* NateOnModProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C90D8B41655611200843B11 /* NateOnModProfileViewController.xib */; };
 		1C9255EB162194B5003A291C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9255D7162194B4003A291C /* AppDelegate.m */; };
 		712E7BA11695B24B00D2D4CB /* libSKPOP_SDK_OAUTH.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 712E7B9F1695B24B00D2D4CB /* libSKPOP_SDK_OAUTH.a */; };
 		712E7BA21695B24B00D2D4CB /* libSKPOP_SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 712E7BA01695B24B00D2D4CB /* libSKPOP_SDK.a */; };
+		71F0C72718312B550092FF86 /* ElevenStreetCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F0C71C18312B550092FF86 /* ElevenStreetCategoriesViewController.m */; };
+		71F0C72818312B550092FF86 /* ElevenStreetCategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71F0C71D18312B550092FF86 /* ElevenStreetCategoriesViewController.xib */; };
+		71F0C72918312B550092FF86 /* TcloudImagesDeleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F0C71F18312B550092FF86 /* TcloudImagesDeleteViewController.m */; };
+		71F0C72A18312B550092FF86 /* TcloudImagesDeleteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71F0C72018312B550092FF86 /* TcloudImagesDeleteViewController.xib */; };
+		71F0C72B18312B550092FF86 /* TcloudImagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F0C72218312B550092FF86 /* TcloudImagesViewController.m */; };
+		71F0C72C18312B550092FF86 /* TcloudImagesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71F0C72318312B550092FF86 /* TcloudImagesViewController.xib */; };
+		71F0C72D18312B550092FF86 /* TcloudImageTagsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F0C72518312B550092FF86 /* TcloudImageTagsViewController.m */; };
+		71F0C72E18312B550092FF86 /* TcloudImageTagsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71F0C72618312B550092FF86 /* TcloudImageTagsViewController.xib */; };
 		CE2684C115CBC6DD0030D17A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2684C015CBC6DD0030D17A /* UIKit.framework */; };
 		CE2684C315CBC6DD0030D17A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2684C215CBC6DD0030D17A /* Foundation.framework */; };
 		CE2684C515CBC6DD0030D17A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2684C415CBC6DD0030D17A /* CoreGraphics.framework */; };
@@ -37,28 +35,25 @@
 		1C74AE9E16543950007728FE /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		1C74AE9F16543950007728FE /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		1C74AEA016543950007728FE /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
-		1C90D8A31655611200843B11 /* CyworldNoteDeleteArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CyworldNoteDeleteArticleViewController.h; sourceTree = "<group>"; };
-		1C90D8A41655611200843B11 /* CyworldNoteDeleteArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CyworldNoteDeleteArticleViewController.m; sourceTree = "<group>"; };
-		1C90D8A51655611200843B11 /* CyworldNoteDeleteArticleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CyworldNoteDeleteArticleViewController.xib; sourceTree = "<group>"; };
-		1C90D8A61655611200843B11 /* CyworldNoteUploadFileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CyworldNoteUploadFileViewController.h; sourceTree = "<group>"; };
-		1C90D8A71655611200843B11 /* CyworldNoteUploadFileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CyworldNoteUploadFileViewController.m; sourceTree = "<group>"; };
-		1C90D8A81655611200843B11 /* CyworldNoteUploadFileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CyworldNoteUploadFileViewController.xib; sourceTree = "<group>"; };
-		1C90D8A91655611200843B11 /* CyworldNoteWriteArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CyworldNoteWriteArticleViewController.h; sourceTree = "<group>"; };
-		1C90D8AA1655611200843B11 /* CyworldNoteWriteArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CyworldNoteWriteArticleViewController.m; sourceTree = "<group>"; };
-		1C90D8AB1655611200843B11 /* CyworldNoteWriteArticleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CyworldNoteWriteArticleViewController.xib; sourceTree = "<group>"; };
 		1C90D8AC1655611200843B11 /* MelonNewSongsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MelonNewSongsViewController.h; sourceTree = "<group>"; };
 		1C90D8AD1655611200843B11 /* MelonNewSongsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MelonNewSongsViewController.m; sourceTree = "<group>"; };
 		1C90D8AE1655611200843B11 /* MelonNewSongsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MelonNewSongsViewController.xib; sourceTree = "<group>"; };
-		1C90D8AF1655611200843B11 /* NateOnGetProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NateOnGetProfileViewController.h; sourceTree = "<group>"; };
-		1C90D8B01655611200843B11 /* NateOnGetProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NateOnGetProfileViewController.m; sourceTree = "<group>"; };
-		1C90D8B11655611200843B11 /* NateOnGetProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NateOnGetProfileViewController.xib; sourceTree = "<group>"; };
-		1C90D8B21655611200843B11 /* NateOnModProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NateOnModProfileViewController.h; sourceTree = "<group>"; };
-		1C90D8B31655611200843B11 /* NateOnModProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NateOnModProfileViewController.m; sourceTree = "<group>"; };
-		1C90D8B41655611200843B11 /* NateOnModProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NateOnModProfileViewController.xib; sourceTree = "<group>"; };
 		1C9255D6162194B4003A291C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1C9255D7162194B4003A291C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		712E7B9F1695B24B00D2D4CB /* libSKPOP_SDK_OAUTH.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSKPOP_SDK_OAUTH.a; path = "../SKPOP_SDK_OAUTH/build/Release-iphoneos/libSKPOP_SDK_OAUTH.a"; sourceTree = "<group>"; };
 		712E7BA01695B24B00D2D4CB /* libSKPOP_SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSKPOP_SDK.a; path = "../SKPOP_SDK/build/Release-iphoneos/libSKPOP_SDK.a"; sourceTree = "<group>"; };
+		71F0C71B18312B550092FF86 /* ElevenStreetCategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElevenStreetCategoriesViewController.h; sourceTree = "<group>"; };
+		71F0C71C18312B550092FF86 /* ElevenStreetCategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElevenStreetCategoriesViewController.m; sourceTree = "<group>"; };
+		71F0C71D18312B550092FF86 /* ElevenStreetCategoriesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElevenStreetCategoriesViewController.xib; sourceTree = "<group>"; };
+		71F0C71E18312B550092FF86 /* TcloudImagesDeleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TcloudImagesDeleteViewController.h; sourceTree = "<group>"; };
+		71F0C71F18312B550092FF86 /* TcloudImagesDeleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TcloudImagesDeleteViewController.m; sourceTree = "<group>"; };
+		71F0C72018312B550092FF86 /* TcloudImagesDeleteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TcloudImagesDeleteViewController.xib; sourceTree = "<group>"; };
+		71F0C72118312B550092FF86 /* TcloudImagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TcloudImagesViewController.h; sourceTree = "<group>"; };
+		71F0C72218312B550092FF86 /* TcloudImagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TcloudImagesViewController.m; sourceTree = "<group>"; };
+		71F0C72318312B550092FF86 /* TcloudImagesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TcloudImagesViewController.xib; sourceTree = "<group>"; };
+		71F0C72418312B550092FF86 /* TcloudImageTagsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TcloudImageTagsViewController.h; sourceTree = "<group>"; };
+		71F0C72518312B550092FF86 /* TcloudImageTagsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TcloudImageTagsViewController.m; sourceTree = "<group>"; };
+		71F0C72618312B550092FF86 /* TcloudImageTagsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TcloudImageTagsViewController.xib; sourceTree = "<group>"; };
 		CE2684BC15CBC6DD0030D17A /* SKPlanetTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKPlanetTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2684C015CBC6DD0030D17A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CE2684C215CBC6DD0030D17A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -90,24 +85,21 @@
 		1C74AE8D16543950007728FE /* Sample_Class */ = {
 			isa = PBXGroup;
 			children = (
-				1C90D8A31655611200843B11 /* CyworldNoteDeleteArticleViewController.h */,
-				1C90D8A41655611200843B11 /* CyworldNoteDeleteArticleViewController.m */,
-				1C90D8A51655611200843B11 /* CyworldNoteDeleteArticleViewController.xib */,
-				1C90D8A61655611200843B11 /* CyworldNoteUploadFileViewController.h */,
-				1C90D8A71655611200843B11 /* CyworldNoteUploadFileViewController.m */,
-				1C90D8A81655611200843B11 /* CyworldNoteUploadFileViewController.xib */,
-				1C90D8A91655611200843B11 /* CyworldNoteWriteArticleViewController.h */,
-				1C90D8AA1655611200843B11 /* CyworldNoteWriteArticleViewController.m */,
-				1C90D8AB1655611200843B11 /* CyworldNoteWriteArticleViewController.xib */,
+				71F0C71B18312B550092FF86 /* ElevenStreetCategoriesViewController.h */,
+				71F0C71C18312B550092FF86 /* ElevenStreetCategoriesViewController.m */,
+				71F0C71D18312B550092FF86 /* ElevenStreetCategoriesViewController.xib */,
+				71F0C71E18312B550092FF86 /* TcloudImagesDeleteViewController.h */,
+				71F0C71F18312B550092FF86 /* TcloudImagesDeleteViewController.m */,
+				71F0C72018312B550092FF86 /* TcloudImagesDeleteViewController.xib */,
+				71F0C72118312B550092FF86 /* TcloudImagesViewController.h */,
+				71F0C72218312B550092FF86 /* TcloudImagesViewController.m */,
+				71F0C72318312B550092FF86 /* TcloudImagesViewController.xib */,
+				71F0C72418312B550092FF86 /* TcloudImageTagsViewController.h */,
+				71F0C72518312B550092FF86 /* TcloudImageTagsViewController.m */,
+				71F0C72618312B550092FF86 /* TcloudImageTagsViewController.xib */,
 				1C90D8AC1655611200843B11 /* MelonNewSongsViewController.h */,
 				1C90D8AD1655611200843B11 /* MelonNewSongsViewController.m */,
 				1C90D8AE1655611200843B11 /* MelonNewSongsViewController.xib */,
-				1C90D8AF1655611200843B11 /* NateOnGetProfileViewController.h */,
-				1C90D8B01655611200843B11 /* NateOnGetProfileViewController.m */,
-				1C90D8B11655611200843B11 /* NateOnGetProfileViewController.xib */,
-				1C90D8B21655611200843B11 /* NateOnModProfileViewController.h */,
-				1C90D8B31655611200843B11 /* NateOnModProfileViewController.m */,
-				1C90D8B41655611200843B11 /* NateOnModProfileViewController.xib */,
 				1C74AE8E16543950007728FE /* Const.h */,
 				1C74AE9E16543950007728FE /* ViewController.h */,
 				1C74AE9F16543950007728FE /* ViewController.m */,
@@ -222,12 +214,11 @@
 				CE2684CB15CBC6DE0030D17A /* InfoPlist.strings in Resources */,
 				CE26851A15CBC75A0030D17A /* SKPOPSDKSample-Info.plist in Resources */,
 				1C74AEAF16543950007728FE /* ViewController.xib in Resources */,
-				1C90D8B61655611300843B11 /* CyworldNoteDeleteArticleViewController.xib in Resources */,
-				1C90D8B81655611300843B11 /* CyworldNoteUploadFileViewController.xib in Resources */,
-				1C90D8BA1655611300843B11 /* CyworldNoteWriteArticleViewController.xib in Resources */,
 				1C90D8BC1655611300843B11 /* MelonNewSongsViewController.xib in Resources */,
-				1C90D8BE1655611300843B11 /* NateOnGetProfileViewController.xib in Resources */,
-				1C90D8C01655611300843B11 /* NateOnModProfileViewController.xib in Resources */,
+				71F0C72818312B550092FF86 /* ElevenStreetCategoriesViewController.xib in Resources */,
+				71F0C72A18312B550092FF86 /* TcloudImagesDeleteViewController.xib in Resources */,
+				71F0C72C18312B550092FF86 /* TcloudImagesViewController.xib in Resources */,
+				71F0C72E18312B550092FF86 /* TcloudImageTagsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,12 +232,11 @@
 				CE2684CD15CBC6DE0030D17A /* main.m in Sources */,
 				1C9255EB162194B5003A291C /* AppDelegate.m in Sources */,
 				1C74AEAE16543950007728FE /* ViewController.m in Sources */,
-				1C90D8B51655611300843B11 /* CyworldNoteDeleteArticleViewController.m in Sources */,
-				1C90D8B71655611300843B11 /* CyworldNoteUploadFileViewController.m in Sources */,
-				1C90D8B91655611300843B11 /* CyworldNoteWriteArticleViewController.m in Sources */,
 				1C90D8BB1655611300843B11 /* MelonNewSongsViewController.m in Sources */,
-				1C90D8BD1655611300843B11 /* NateOnGetProfileViewController.m in Sources */,
-				1C90D8BF1655611300843B11 /* NateOnModProfileViewController.m in Sources */,
+				71F0C72718312B550092FF86 /* ElevenStreetCategoriesViewController.m in Sources */,
+				71F0C72918312B550092FF86 /* TcloudImagesDeleteViewController.m in Sources */,
+				71F0C72B18312B550092FF86 /* TcloudImagesViewController.m in Sources */,
+				71F0C72D18312B550092FF86 /* TcloudImageTagsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

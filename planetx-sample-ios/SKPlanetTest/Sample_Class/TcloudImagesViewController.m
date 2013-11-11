@@ -1,32 +1,30 @@
 //
-//  CyworldNoteUploadFileViewController.m
-//  SKPOPSDKSample
+//  TcloudImagesViewController.m
+//  SKPlanetTest
 //
-//  Created by Lion User on 01/08/2012.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Ray on 13. 11. 10..
+//
 //
 
-#import "CyworldNoteUploadFileViewController.h"
+#import "TcloudImagesViewController.h"
 #import "Const.h"
 
 #import "APIRequest.h"
 #import "RequestBundle.h"
 
-@interface CyworldNoteUploadFileViewController ()
+@interface TcloudImagesViewController ()
 
 @end
 
-@implementation CyworldNoteUploadFileViewController
+@implementation TcloudImagesViewController
 
 @synthesize myTextView;
-@synthesize filePathTextField;
 
 APIRequest *api;
 RequestBundle *reqBundle;
 
-#define USERID @"67324899"
-#define URL SERVER@"/cyworld/note/"USERID@"/imageupload"
 
+#define URL SERVER@"/tcloud/images"
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,7 +39,7 @@ RequestBundle *reqBundle;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.navigationItem.title = @"Upload Cyworld Image";
+    self.navigationItem.title = @"Get Tcloud Images";
     
     reqBundle = [[RequestBundle alloc] init];
     api = [[APIRequest alloc] init];
@@ -51,8 +49,6 @@ RequestBundle *reqBundle;
 {
     [myTextView release];
     myTextView = nil;
-    [filePathTextField release];
-    filePathTextField = nil;
     
     [api release];
     api = nil;
@@ -70,6 +66,7 @@ RequestBundle *reqBundle;
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+
 - (void)clearResult {
     [myTextView setText:@""];
 }
@@ -78,16 +75,15 @@ RequestBundle *reqBundle;
 {
     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
     [param setValue:@"1" forKey:@"version"];
+    [param setValue:@"" forKey:@"page"];
+    [param setValue:@"" forKey:@"count"];
+    [param setValue:@"" forKey:@"searchtype"];
+    [param setValue:@"" forKey:@"searchkeyword"];
     
-    NSString *uploadFilePath = [filePathTextField text];
-    
-    reqBundle = [[RequestBundle alloc] init];
     [reqBundle setUrl:URL];
     [reqBundle setParameters:param];
-    [reqBundle setHttpMethod:SKPopHttpMethodPOST];
+    [reqBundle setHttpMethod:SKPopHttpMethodGET];
     [reqBundle setResponseType:SKPopContentTypeJSON];
-    [reqBundle setUploadFileKey:@"image"];
-    [reqBundle setUploadFilePath:uploadFilePath];
     
     [param release];
     
@@ -98,7 +94,8 @@ RequestBundle *reqBundle;
 - (IBAction)requestSync:(id)sender {
     
     [self clearResult];
-
+    
+    
     [self initRequestBundle];
     
     ResponseMessage *result = nil;
@@ -112,8 +109,9 @@ RequestBundle *reqBundle;
     } else {
         [myTextView setText:[NSString stringWithFormat:@"%@\n%@", result.statusCode, result.resultMessage]];
     }
- 
+    
     [result release];
+    
 }
 
 
@@ -123,55 +121,33 @@ RequestBundle *reqBundle;
     
     [self initRequestBundle];
     
-    [api setDelegate:self 
-            finished:@selector(apiRequestFinished:) 
-              failed:@selector(apiRequestFailed:)];
+    [api setDelegate:self
+            finished:@selector(testFinished:)
+              failed:@selector(testFailed:)];
     [api aSyncRequest:reqBundle];
     
-}
-
-- (IBAction)pickImage:(id)sender {
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
-    picker.allowsEditing = YES;
-    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
-    [self presentModalViewController:picker animated:YES];
-    [picker release];
 }
 
 #pragma mark
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    UIImage *img = [info objectForKey:UIImagePickerControllerEditedImage];
-    //you can use UIImagePickerControllerOriginalImage for the original image
-    
-    //Now, save the image to your apps temp folder, 
-    
-    NSString *path = [NSTemporaryDirectory() stringByAppendingPathComponent:@"upload-image.jpg"];
-    NSData *imageData = UIImagePNGRepresentation(img);
-    //you can also use UIImageJPEGRepresentation(img,1); for jpegs
-    [imageData writeToFile:path atomically:YES];
-    
-    //now call your method
-    [filePathTextField setText:path];
-    
-    [picker dismissModalViewControllerAnimated:YES];
-    
+// delegate 함수
+-(void)testProgress:(NSDictionary *)result
+{
+    NSLog(@"testProgress : %@", result);
+    [result release];
 }
 
-#pragma mark - SKPOP SDK Delegate
-
--(void)apiRequestFinished:(NSDictionary *)result
+-(void)testFinished:(NSDictionary *)result
 {
-    NSLog(@"apiRequestFinished : %@", result);
+    NSLog(@"testFinished : %@", result);
     [myTextView setText:[result valueForKey:SKPopASyncResultData]];
     [result release];
 }
 
--(void)apiRequestFailed:(NSDictionary *)result
+-(void)testFailed:(NSDictionary *)result
 {
-    NSLog(@"apiRequestFailed : %@", result);
+    NSLog(@"testFailed : %@", result);
     [myTextView setText:[result valueForKey:SKPopASyncResultMessage]];
     [result release];
     
