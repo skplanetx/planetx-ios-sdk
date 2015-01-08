@@ -153,7 +153,7 @@
 		1C92555516209DA1003A291C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = SK;
 			};
 			buildConfigurationList = 1C92555816209DA1003A291C /* Build configuration list for PBXProject "SKPOP_SDK_OAUTH" */;
@@ -211,6 +211,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
