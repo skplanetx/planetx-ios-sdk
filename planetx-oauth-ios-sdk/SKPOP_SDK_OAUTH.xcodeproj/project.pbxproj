@@ -10,7 +10,6 @@
 		1C74AE86165438B2007728FE /* OAuthClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C74AE83165438B2007728FE /* OAuthClient.m */; };
 		1C74AE87165438B2007728FE /* OAuthInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C74AE85165438B2007728FE /* OAuthInfoManager.m */; };
 		1C92556216209DA1003A291C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C92556116209DA1003A291C /* Foundation.framework */; };
-		1C9255C3162191B3003A291C /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9255C2162191B3003A291C /* JSONKit.m */; };
 		1CA2532416555C7B00C55B0C /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA2531F16555C7B00C55B0C /* Constants.m */; };
 		1CA2532516555C7B00C55B0C /* OAuthInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA2532116555C7B00C55B0C /* OAuthInfo.m */; };
 		1CA2532616555C7B00C55B0C /* StringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA2532316555C7B00C55B0C /* StringUtil.m */; };
@@ -36,8 +35,6 @@
 		1C92555E16209DA1003A291C /* libSKPOP_SDK_OAUTH.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSKPOP_SDK_OAUTH.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C92556116209DA1003A291C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1C92556516209DA1003A291C /* SKPOP_SDK_OAUTH-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SKPOP_SDK_OAUTH-Prefix.pch"; sourceTree = "<group>"; };
-		1C9255C1162191B3003A291C /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
-		1C9255C2162191B3003A291C /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		1CA2531E16555C7B00C55B0C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		1CA2531F16555C7B00C55B0C /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		1CA2532016555C7B00C55B0C /* OAuthInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthInfo.h; sourceTree = "<group>"; };
@@ -104,7 +101,6 @@
 			isa = PBXGroup;
 			children = (
 				1C74AE81165438B2007728FE /* OAUTH_Class */,
-				1C9255C0162191B3003A291C /* JSONKit */,
 				1C92556416209DA1003A291C /* Supporting Files */,
 			);
 			path = SKPOP_SDK_OAUTH;
@@ -116,15 +112,6 @@
 				1C92556516209DA1003A291C /* SKPOP_SDK_OAUTH-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		1C9255C0162191B3003A291C /* JSONKit */ = {
-			isa = PBXGroup;
-			children = (
-				1C9255C1162191B3003A291C /* JSONKit.h */,
-				1C9255C2162191B3003A291C /* JSONKit.m */,
-			);
-			path = JSONKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,7 +165,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C9255C3162191B3003A291C /* JSONKit.m in Sources */,
 				1C74AE86165438B2007728FE /* OAuthClient.m in Sources */,
 				1C74AE87165438B2007728FE /* OAuthInfoManager.m in Sources */,
 				1CA2532416555C7B00C55B0C /* Constants.m in Sources */,
@@ -241,7 +227,7 @@
 				DSTROOT = /tmp/SKPOP_SDK_OAUTH.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SKPOP_SDK_OAUTH/SKPOP_SDK_OAUTH-Prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/SKPOP_SDK_OAUTH/SKPOP_SDK\"",
@@ -258,7 +244,7 @@
 				DSTROOT = /tmp/SKPOP_SDK_OAUTH.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SKPOP_SDK_OAUTH/SKPOP_SDK_OAUTH-Prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/SKPOP_SDK_OAUTH/SKPOP_SDK\"",

@@ -9,7 +9,6 @@
 #import <QuartzCore/QuartzCore.h>
 #import "OAuthClient.h"
 #import "StringUtil.h"
-#import "JSONKit.h"
 #import "OAuthInfoManager.h"
 #import "Constants.h"
 
@@ -317,9 +316,10 @@ CGRect oldStatusFrame;
     OAuthInfoManager *oAuthInfoManager = [OAuthInfoManager sharedInstance];
 
     NSLog(@"accessToken : %@", oAuthInfoManager.oAuthInfo.accessToken);
-    
-    NSDictionary *dict = [data objectFromJSONData];
-    
+    NSError *JSONerror = nil;
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &JSONerror];
+    if ( JSONerror )
+        NSLog(@"Error = %@", JSONerror);
     
     NSString *access_token = [NSString stringWithFormat:@"%@", [dict objectForKey:@"access_token"]];
     if ( access_token != nil ) {

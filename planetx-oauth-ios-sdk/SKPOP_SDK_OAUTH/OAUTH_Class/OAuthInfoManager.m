@@ -7,7 +7,6 @@
 //
 
 #import "OAuthInfoManager.h"
-#import "JSONKit.h"
 #import "StringUtil.h"
 #import "Constants.h"
 
@@ -222,7 +221,10 @@ static OAuthInfoManager *sharedInstance = nil;
 -(void)setOAuthInfoWithJSON:(NSData *)data
 {
     
-    NSDictionary *dict = [data objectFromJSONData];
+    NSError *JSONerror = nil;
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &JSONerror];
+    if ( JSONerror )
+        NSLog(@"Error = %@", JSONerror);
     
     NSString *tmpAccessToken = [NSString stringWithFormat:@"%@", [dict objectForKey:SKPOP_OAUTH_END_ACCESS_TOKEN]];
     if ( tmpAccessToken != nil ) {
