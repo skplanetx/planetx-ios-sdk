@@ -67,19 +67,19 @@ CGRect oldStatusFrame;
     y = fullFrame.origin.y;
     
 	viewBlock = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, w, h)];
-	//viewBlock.backgroundColor = [UIColor blackColor];
-	viewBlock.backgroundColor = [UIColor colorWithRed:0.70 green:0.70 blue:0.70 alpha:1];
-	//viewBlock.alpha = 0.5f;
+    [viewBlock setAutoresizingMask:(UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth)];
+    [viewBlock setAutoresizesSubviews:YES];
+    [viewBlock setBackgroundColor:[UIColor clearColor]];
 	[window addSubview:viewBlock];
 	[viewBlock release];
     
     
-    bgView = [[UIView alloc] init];
-    [bgView setFrame:CGRectMake(w/2, h/2, 0, 0)];
-    [bgView setBackgroundColor:[UIColor grayColor]];
+    bgView = [[UIView alloc] initWithFrame:CGRectMake(w/2, h/2, 0, 0)];
+    [bgView setAutoresizingMask:(UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth)];
+    [bgView setAutoresizesSubviews:YES];
+    [bgView setBackgroundColor:[UIColor colorWithRed:0.30 green:0.30 blue:0.30 alpha:0.7]];
     bgView.layer.cornerRadius = 10;
     bgView.clipsToBounds = YES;
-    bgView.alpha = 1;
     
     [viewBlock addSubview:bgView];
     [bgView release];
@@ -96,16 +96,15 @@ CGRect oldStatusFrame;
     [bgView addSubview:closeButton];
 
     
-    
-    loginView = [[UIWebView alloc] init];
+    loginView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 30, w-10, h-10-30)];
     [loginView setDelegate:self];
     [loginView setBackgroundColor:[UIColor clearColor]];
     [loginView setScalesPageToFit:YES];
-    [loginView setFrame:CGRectMake(0, 30, w-10, h-10-30)];
     [bgView addSubview:loginView];
     [loginView release];
     
-    [UIView beginAnimations:nil context:NULL];
+    [UIView beginAnimations:@"oAuthLoginBoxPopup" context:closeButton];
+    [UIView setAnimationDelegate:self];
     [UIView setAnimationDuration:0.5];
     [bgView setFrame:CGRectMake(x+5, 5, w-10, h-10)];
     [UIView commitAnimations];
@@ -138,18 +137,33 @@ CGRect oldStatusFrame;
     [UIView commitAnimations];
 }
      
--(void)animationDidStop:(NSString *)animID finished:(BOOL)didFinish context:(void *)context 
+-(void)animationDidStop:(NSString *)animID finished:(BOOL)didFinish context:(void *)context
 {
+    if ( [animID isEqualToString:@"oAuthLoginBoxPopup"] ) {
+        UIButton *closeButton = context;
+        CGRect fullFrame = [[UIApplication sharedApplication] keyWindow].bounds;
+        CGFloat w, h;
+        
+        w = fullFrame.size.width;
+        h = fullFrame.size.height;
+        
+        [closeButton setFrame:CGRectMake(w-40, 5, 20, 20)];
+        [loginView setFrame:CGRectMake(0, 30, w-10, h-10-30)];
+
+        [closeButton setAutoresizingMask:(UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleLeftMargin)];
+        [loginView setAutoresizingMask:(UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth)];
+
+    }
     if ( [animID isEqualToString:@"close"] ) {
         [loginView removeFromSuperview];
         [bgView removeFromSuperview];
         [viewBlock removeFromSuperview];
-    }
-    
-    if ( oldStatusFrame.size.height > 0 ) {
-        [[UIApplication sharedApplication]
-         setStatusBarHidden:NO
-         withAnimation:UIStatusBarAnimationNone];
+        
+        if ( oldStatusFrame.size.height > 0 ) {
+            [[UIApplication sharedApplication]
+             setStatusBarHidden:NO
+             withAnimation:UIStatusBarAnimationNone];
+        }
     }
 }
 
