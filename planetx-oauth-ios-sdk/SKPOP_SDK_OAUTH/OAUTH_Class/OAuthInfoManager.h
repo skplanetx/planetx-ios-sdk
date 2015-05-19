@@ -66,7 +66,6 @@
 -(void)login:(id)target
     finished:(SEL)finishedSelcotr
       failed:(SEL)failedSelector;
--(void)login;
 -(void)logout:(id)target
     finished:(SEL)finishedSelcotr
       failed:(SEL)failedSelector;

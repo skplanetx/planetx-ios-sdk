@@ -304,13 +304,6 @@ static OAuthInfoManager *sharedInstance = nil;
 
 }
 
-
--(void)login
-{
-    BOOL res = YES;
-    res = [self revokeTokenToServer];
-}
-
 -(void)logout:(id)target
     finished:(SEL)finishedSelcotr
       failed:(SEL)failedSelector
@@ -319,7 +312,7 @@ static OAuthInfoManager *sharedInstance = nil;
     self._finishedSelector = finishedSelcotr;
     self._failedSelector = failedSelector;
     
-    [self revokeTokenToServerAsynch];
+    [self revokeTokenToServerAsync];
 
 }
 
@@ -341,60 +334,69 @@ static OAuthInfoManager *sharedInstance = nil;
     [oAuthInfo setRefreshToken:@""];
     [oAuthInfo setExpiresIn:@"0"];
     [self saveOAuthInfo];
+    
+    NSHTTPCookieStorage* cookies = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    NSArray* oauthServerCookies = [cookies cookiesForURL:
+                                [NSURL URLWithString:@"https://oneid.skplanetx.com"]];
+    for (NSHTTPCookie* cookie in oauthServerCookies) {
+        [cookies deleteCookie:cookie];
+    }
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 
 /***
- * AT RT 파기.
+ * Acess Token Refresh Token 파기.
  */
 -(BOOL)revokeTokenToServer
 {
     BOOL result = NO;
-    NSString *responseString = nil;
+
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL: [NSURL URLWithString:[self getRevokeTokenUrl]]
+                                                cachePolicy: NSURLRequestUseProtocolCachePolicy
+                                            timeoutInterval: 60.0];
     
-    
-    NSString *urlAddress = [self getRevokeTokenUrl];
-    
-    NSURL *url = [NSURL URLWithString:urlAddress];
     NSURLResponse* response = nil;
+    NSData* jsonData = [NSURLConnection sendSynchronousRequest: requestObj
+                                             returningResponse: &response error:nil] ;
     
-#if 0
-    // TODO FIXME 중요!! 무효화 루틴 상용 배포시 반드시 제거할것.!!!!!!!!!!
-    // SSL 인증 무효화 루틴 추가
-    [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:[url host]];
-#endif
-    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
-    
-    NSData* jsonData = [NSURLConnection sendSynchronousRequest:requestObj returningResponse:&response error:nil] ;
-    
-    responseString = [[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding] autorelease];
+    NSString *responseString = [[[NSString alloc] initWithData: jsonData
+                                                      encoding: NSUTF8StringEncoding] autorelease];
     NSLog(@"revokeTokenToServer : %@", responseString);
     
-    NSRange range = [responseString rangeOfString:@"success"];
-    if ( range.location != NSNotFound ) {
+    if ( [responseString rangeOfString:@"success"].location != NSNotFound ) {
         result = YES;
     }
     
     return result;
 }
 
--(void)revokeTokenToServerAsynch
+-(void)revokeTokenToServerAsync
 {
-    NSString *url = [self getRevokeTokenUrl];
-    [self readUrl:url];
-}
-
--(void)readUrl:(NSString *)url
-{
-    
-    NSURL *requestUrl = [NSURL URLWithString:url];
-    NSURLRequest *request = [NSURLRequest requestWithURL:requestUrl];
+    NSURLRequest *request = [NSURLRequest requestWithURL: [NSURL URLWithString:[self getRevokeTokenUrl]]
+                                             cachePolicy: NSURLRequestUseProtocolCachePolicy
+                                         timeoutInterval: 60.0];
     
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:[[NSOperationQueue alloc] init]
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *err)
      {
-         if ([data length] > 0 && err == nil)
+         NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+         if (err != nil){
+             NSLog(@"Error = %@", err);
+             if(_target && _failedSelector)
+             {
+                 [dict setValue:@"" forKey:SKPopASyncResultCode];
+                 [dict setValue:[err localizedDescription] forKey:SKPopASyncResultMessage];
+                 [dict setValue:@"" forKey:SKPopASyncResultData];
+                 [_target performSelectorOnMainThread:_failedSelector withObject:dict waitUntilDone:FALSE];
+             }
+             [dict release];
+             return;
+         }
+         
+         if ([data length] > 0)
          {
              //[receivedData appendData:data];
              
@@ -403,44 +405,29 @@ static OAuthInfoManager *sharedInstance = nil;
              NSString *responseString = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
              NSLog(@"revokeTokenToServer : %@", responseString);
              
+             [self clearOAuthInfo];
+             
              if(_target && _finishedSelector)
              {
-                 NSRange range = [responseString rangeOfString:@"success"];
-                 if ( range.location != NSNotFound ) {
-                     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-                     [dict setValue:@"" forKey:SKPopASyncResultCode];
-                     [dict setValue:@"" forKey:SKPopASyncResultMessage];
-                     [dict setValue:result forKey:SKPopASyncResultData];
+                 [dict setValue:@"" forKey:SKPopASyncResultCode];
+                 [dict setValue:@"" forKey:SKPopASyncResultMessage];
+                 [dict setValue:result forKey:SKPopASyncResultData];
+                 
+                 if ( [responseString rangeOfString:@"success"].location != NSNotFound ) {
                      [_target performSelectorOnMainThread:_finishedSelector withObject:dict waitUntilDone:FALSE];
-                     [dict release];
-                     [self clearOAuthInfo];
                  } else {
-                     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-                     [dict setValue:@"" forKey:SKPopASyncResultCode];
-                     [dict setValue:@"" forKey:SKPopASyncResultMessage];
-                     [dict setValue:result forKey:SKPopASyncResultData];
                      [_target performSelectorOnMainThread:_failedSelector withObject:dict waitUntilDone:FALSE];
-                     [dict release];
                  }
+
              }
 
          }
-         else if ([data length] == 0 && error == nil)
+         else
          {
              NSLog(@"Nothing was downloaded.");
          }
-         else if (err != nil){
-             NSLog(@"Error = %@", err);
-             if(_target && _failedSelector)
-             {
-                 NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-                 [dict setValue:@"" forKey:SKPopASyncResultCode];
-                 [dict setValue:[err localizedDescription] forKey:SKPopASyncResultMessage];
-                 [dict setValue:@"" forKey:SKPopASyncResultData];
-                 [_target performSelectorOnMainThread:_failedSelector withObject:dict waitUntilDone:FALSE];
-                 [dict release];
-             }
-         }
+         [dict release];
+
      }];
 
 }
