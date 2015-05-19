@@ -309,16 +309,6 @@ static OAuthInfoManager *sharedInstance = nil;
 {
     BOOL res = YES;
     res = [self revokeTokenToServer];
-    
-    if ( res ) {
-        NSLog(@"Logout Success");
-        [oAuthInfo setAccessToken:@""];
-        [oAuthInfo setRefreshToken:@""];
-        [oAuthInfo setExpiresIn:@"0"];
-        [self saveOAuthInfo];
-    } else {
-        NSLog(@"Logout failed");
-    }
 }
 
 -(void)logout:(id)target
@@ -339,13 +329,18 @@ static OAuthInfoManager *sharedInstance = nil;
     
     if ( res ) {
         NSLog(@"Logout Success");
-        [oAuthInfo setAccessToken:@""];
-        [oAuthInfo setRefreshToken:@""];
-        [oAuthInfo setExpiresIn:@"0"];
-        [self saveOAuthInfo];
+        [self clearOAuthInfo];
     } else {
         NSLog(@"Logout failed");
     }
+}
+
+-(void)clearOAuthInfo
+{
+    [oAuthInfo setAccessToken:@""];
+    [oAuthInfo setRefreshToken:@""];
+    [oAuthInfo setExpiresIn:@"0"];
+    [self saveOAuthInfo];
 }
 
 
@@ -418,6 +413,7 @@ static OAuthInfoManager *sharedInstance = nil;
                      [dict setValue:result forKey:SKPopASyncResultData];
                      [_target performSelectorOnMainThread:_finishedSelector withObject:dict waitUntilDone:FALSE];
                      [dict release];
+                     [self clearOAuthInfo];
                  } else {
                      NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
                      [dict setValue:@"" forKey:SKPopASyncResultCode];
